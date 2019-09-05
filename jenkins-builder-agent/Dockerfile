@@ -1,7 +1,6 @@
 FROM jenkins/ssh-slave
 
 # Install selected extensions and other stuff
-RUN apt-get update
 
 ADD apache-maven-3.6.1-bin.tar.gz /opt
 
