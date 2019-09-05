@@ -4,9 +4,11 @@ FROM jenkins/ssh-slave
 
 ADD apache-maven-3.6.1-bin.tar.gz /opt
 
-RUN ln -s /opt/apache-maven-3.6.0 /opt/maven
+RUN mv /opt/apache-maven-3.6.1 /opt/maven
 
 ENV M2_HOME=/opt/maven
 ENV MAVEN_HOME=/opt/maven
 ENV PATH=${M2_HOME}/bin:${PATH}
 
+RUN mkdir -p /root/.m2/
+ADD settings.xml /root/.m2
